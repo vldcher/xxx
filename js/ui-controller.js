@@ -1,3 +1,5 @@
+import {Engine} from "./engine";
+
 class Controller {
     constructor(){
         let UI =  new UI();

@@ -1,4 +1,5 @@
-import {Engine} from './index'
+import {Engine} from './engine'
+import {UI} from './ui'
 
 class Controller {
     constructor(UI, engine) {

@@ -1,7 +1,7 @@
 export class GameField {
     constructor(size) {
         this.size = size;
-        this.matrix = this.initialize(size);
+        this.initialize(size);
     }
 
     initialize(size) {

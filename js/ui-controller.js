@@ -2,6 +2,7 @@ class Controller {
     constructor(){
         let UI =  new UI();
         let EngineUI = new Engine();
+        let totalAmount = 0;
 
     }
 
@@ -10,7 +11,7 @@ class Controller {
     }
 
     openCellHandler(i,j){
-        let isOpen = UI.isMatrixOpen;
+        let isOpen = UI.isMatrixOpen;           //default - false
         if(isOpen){
             return;
         }
@@ -24,6 +25,6 @@ class Controller {
         UI.openCell(i, j, amount, totalAmount);     //open cell
 
     }
-}
+};
 
 export Controller;

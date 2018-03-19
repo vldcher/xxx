@@ -49,4 +49,5 @@ export class UI {
 			document.querySelector('.gold').style.display = none;
 			}, this.TIME);
 	}
+
 }

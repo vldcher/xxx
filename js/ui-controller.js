@@ -6,6 +6,7 @@ class Controller {
         this.Engine = engine;
         let totalAmount = 0;
         let level = 0;
+        this.n = engine.clicks;
     }
 
     init() {
@@ -18,8 +19,8 @@ class Controller {
             return;
         }
 
-        N--; //count user's possible click
-        if (N < 1) {
+        this.n--; //count user's possible click
+        if (this.n < 1) {
             UI.levelFailed();
         }
         if (totalAmount > this.Engine.getSuccessRate()) {

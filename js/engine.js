@@ -7,7 +7,7 @@ export class Engine{
         this.init(0.5);
     }
 
-    getSuccesRate(){
+    getSuccessRate(){
         return Math.ceil(this.matrix.totalSum() * this.currentSuccessRate)
     }
 

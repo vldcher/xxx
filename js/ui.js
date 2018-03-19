@@ -5,7 +5,7 @@ export class UI {
 		this.TIME = 2000;
 		this.startButton = document.querySelector('startButton');
 		this.nextButton = document.querySelector('nextButton');
-		this.matrixCells = Array.from(document.querySelectorAll('cell-itiem'));
+		this.matrixCells = Array.from(document.querySelectorAll('cell-item'));
 	}
 
 	levelStart(level) { // get current level
@@ -36,4 +36,5 @@ export class UI {
 		this.isMatrixOpen = true;
 		setTimeout(() => {this.isMatrixOpen = false;}, this.TIME);
 	}
+
 }

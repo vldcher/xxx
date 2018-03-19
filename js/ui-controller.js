@@ -1,4 +1,4 @@
-import from './index'
+import {Engine} from './index'
 
 class Controller {
     constructor(UI, engine) {
@@ -24,9 +24,11 @@ class Controller {
         }
         if (totalAmount > this.Engine.getSuccessRate()) {
             UI.levelSuccess();
+            Engine.startNextLevel();
+
         }
         let matrix = this.Engine.getMatrix();
-        let amount = matrix[(i, j)];
+        let amount = matrix.getValue(i,j);
         totalAmount += amount;
         UI.openCell(i, j, amount, totalAmount); //open cell
     }

@@ -28,13 +28,13 @@ class Controller {
             totalAmount = 0;
             Engine.startNextLevel();
             let matrix = Engine.getMatrix();
-            //paint matrix
+            UI.showEntireMatrix(matrix);
         } else{
             let matrix = this.Engine.getMatrix();
             let amount = matrix.getValue(i,j);
             totalAmount += amount;
             UI.openCell(i, j, amount, totalAmount); //open cell
-            //paint matrix
+            UI.showEntireMatrix(matrix);
         }
 
     }

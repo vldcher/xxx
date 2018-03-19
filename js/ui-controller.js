@@ -1,32 +1,47 @@
-import {Engine} from "./engine";
+import {Engine} from './engine';
+import {UI} from './ui';
 
 class Controller {
-    constructor(){
-        let UI =  new UI();
-        let EngineUI = new Engine();
-        let totalAmount = 0;
-
+    constructor(UI, engine) {
+        this.UI = UI;
+        this.Engine = engine;
+        this.totalAmount = 0;
+        this.level = 0;
+        this.n = engine.clicks;
     }
 
     init() {
-        let start = UI.levelStart(matrix);
+        let start = this.UI.levelStart(this.level);
+        let matrix = this.Engine.getMatrix();
+        this.UI.showEntireMatrix(matrix);
     }
 
-    openCellHandler(i,j){
-        let isOpen = UI.isMatrixOpen;           //default - false
-        if(isOpen){
+    openCellHandler(i, j) {
+        let isOpen = UI.isMatrixOpen; //default - false
+        if (isOpen) {
             return;
         }
-        N--;            //count user's possible click
-        if (N==0){
-            UI.levelFailed()
+
+        this.n--; //count user's possible click
+        if (N < 1) {
+            UI.levelFailed();
         }
-        let matrix = EngineUI.getMatrix();
-        let amount = matrix[i,j];
-        totalAmount+=amount;
-        UI.openCell(i, j, amount, totalAmount);     //open cell
+        if (this.totalAmount > this.Engine.getSuccessRate()) {
+            UI.levelSuccess();
+            this.totalAmount = 0;
+            Engine.startNextLevel();
+            let matrix = Engine.getMatrix();
+            UI.showEntireMatrix(matrix);
+        } else{
+            let matrix = this.Engine.getMatrix();
+            let amount = matrix.getValue(i,j);
+            this.totalAmount += amount;
+            UI.openCell(i, j, amount, this.totalAmount); //open cell
+            UI.showEntireMatrix(matrix);
+        }
 
     }
-};
+}
 
-export Controller;
+let c = new Controller(new UI(), new Engine());
+document.querySelector('.startButton').addEventListener('click', ()=>c.init());

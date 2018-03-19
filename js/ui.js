@@ -22,7 +22,7 @@ export class UI {
 	levelFailed() {
 		alert('you are failed, try again');
 		this.startButton.disabled = false;
-		this.nextButton.style.display = none;
+		this.nextButton.style.display = 'none';
 	}
 
 	openCell(i, j, amount, totalAmount) { // i, j - box address, amount - gold in box, totalAmount - sum of golg from open boxes

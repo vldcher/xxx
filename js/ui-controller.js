@@ -11,7 +11,6 @@ class Controller {
     }
 
     init() {
-        let start = this.UI.levelStart(this.level);
         let matrix = this.Engine.getMatrix();
         this.UI.showEntireMatrix(matrix);
     }
@@ -23,7 +22,7 @@ class Controller {
         }
 
         this.n--; //count user's possible click
-        if (N < 1) {
+        if (this.n < 1) {
             UI.levelFailed();
         }
         if (this.totalAmount > this.Engine.getSuccessRate()) {

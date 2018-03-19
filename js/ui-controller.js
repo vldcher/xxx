@@ -24,13 +24,18 @@ class Controller {
         }
         if (totalAmount > this.Engine.getSuccessRate()) {
             UI.levelSuccess();
+            totalAmount = 0;
             Engine.startNextLevel();
-
+            let matrix = Engine.getMatrix();
+            //paint matrix
+        } else{
+            let matrix = this.Engine.getMatrix();
+            let amount = matrix.getValue(i,j);
+            totalAmount += amount;
+            UI.openCell(i, j, amount, totalAmount); //open cell
+            //paint matrix
         }
-        let matrix = this.Engine.getMatrix();
-        let amount = matrix.getValue(i,j);
-        totalAmount += amount;
-        UI.openCell(i, j, amount, totalAmount); //open cell
+
     }
 }
 

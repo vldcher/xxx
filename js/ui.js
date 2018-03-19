@@ -1,12 +1,11 @@
 export class UI {
 
-	let startButton = document.querySelector('startButton');
-	let nextButton = document.querySelector('nextButton');
-	let matrixCells = Array.from(document.querySelectorAll('cell_itiem'));
-
 	constructor() {
 		this.isMatrixOpen = false;
 		this.TIME = 2000;
+		this.startButton = document.querySelector('startButton');
+		this.nextButton = document.querySelector('nextButton');
+		this.matrixCells = Array.from(document.querySelectorAll('cell-itiem'));
 	}
 
 	levelStart(level) { // get current level
@@ -31,6 +30,9 @@ export class UI {
 	}
 
 	showEntireMatrix(matrix) { //show matrix at start and close it for play
+		matrixCells.forEach((element, index, matrixCells) => {
+			element.innerHTML = matrix[index];
+		});
 		this.isMatrixOpen = true;
 		setTimeout(() => {this.isMatrixOpen = false;}, this.TIME);
 	}

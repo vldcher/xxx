@@ -3,7 +3,7 @@ export class Randomizer{
         let len = matrix.length;
         for (let i = 0; i < len; i++){
             for (let j = 0; j < len; j++) {
-                matrix[i][j] =  Math.random() * (max - min) + min;
+                matrix.setValue(i,j, Math.random() * (max - min) + min);
             }
         }
         return matrix;

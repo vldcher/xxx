@@ -1,4 +1,4 @@
-import {Randomizer} from 'js/randomizer';
+import {Randomizer} from './randomizer';
 import {GameField} from "./gamefield";
 import {evaluate} from "./clicksevaluator";
 
@@ -16,7 +16,7 @@ export class Engine{
         this.init(nsr);
     }
 
-    getMatrix(level){
+    getMatrix(){
         return this.matrix;
     }
 

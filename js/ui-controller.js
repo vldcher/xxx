@@ -1,43 +1,32 @@
-import {Engine} from './index'
+import {Engine} from "./engine";
 
 class Controller {
-    constructor(UI, engine) {
-        this.UI = UI;
-        this.Engine = engine;
+    constructor(){
+        let UI =  new UI();
+        let EngineUI = new Engine();
         let totalAmount = 0;
-        let level = 0;
-        this.n = engine.clicks;
+
     }
 
     init() {
-        let start = this.UI.levelStart(matrix);
+        let start = UI.levelStart(matrix);
     }
 
-    openCellHandler(i, j) {
-        let isOpen = UI.isMatrixOpen; //default - false
-        if (isOpen) {
+    openCellHandler(i,j){
+        let isOpen = UI.isMatrixOpen;           //default - false
+        if(isOpen){
             return;
         }
-
-        this.n--; //count user's possible click
-        if (this.n < 1) {
-            UI.levelFailed();
+        N--;            //count user's possible click
+        if (N==0){
+            UI.levelFailed()
         }
-        if (totalAmount > this.Engine.getSuccessRate()) {
-            UI.levelSuccess();
-            totalAmount = 0;
-            Engine.startNextLevel();
-            let matrix = Engine.getMatrix();
-            //paint matrix
-        } else{
-            let matrix = this.Engine.getMatrix();
-            let amount = matrix.getValue(i,j);
-            totalAmount += amount;
-            UI.openCell(i, j, amount, totalAmount); //open cell
-            //paint matrix
-        }
+        let matrix = EngineUI.getMatrix();
+        let amount = matrix[i,j];
+        totalAmount+=amount;
+        UI.openCell(i, j, amount, totalAmount);     //open cell
 
     }
-}
+};
 
-const controller = new Controller(new UI(), new Engine());
+export Controller;

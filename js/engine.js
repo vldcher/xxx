@@ -24,7 +24,7 @@ export class Engine{
         this.currentSuccessRate = sr;
         this.randomizer = new Randomizer();
         this.matrix = new GameField(5);
-        this.randomizer.fillMatrix(this.matrix);
+        this.randomizer.fillMatrix(this.matrix, 10, 1000);
         this.clicks = evaluate(this.matrix);
     }
 

@@ -17,6 +17,10 @@ body {
     width: 35%;
     height: 100vh;
     background-color: rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .main-filed {
@@ -29,8 +33,8 @@ body {
 }
 
 .main-field-wrapper {
-    width: 60rem;
-    height: 52rem;
+    width: 40rem;
+    height: 40rem;
     background-color: rgba(0, 255, 0, 0.3);  
 }
 
@@ -43,30 +47,72 @@ body {
 }
 
 .cell-item {
-    width: 8rem;
-    height: 8rem;
+    width: 6rem;
+    height: 6rem;
     background-color: rgba(255, 0, 0, 0.3);
-    margin: 1.2rem;
+    margin: 1rem;
+    background: url("./../images/ring.png") repeat-y;
+    background-size: cover;
+
     
+}
+.cell-item:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+    /* transform: rotateX(90deg); */
+    transition: all .25s ease-in;
 }
 
 .button {
     background-color: transparent;
-    color: green;
+    color: #bbd1aa;
     width: 180px;
     padding: .5rem 1rem;
     border-radius: 3px;
     margin: 0;
     outline: none;
-    border: 2px solid green;
+    border: 2px solid #bbd1aa;
     text-transform: uppercase;
+    margin-top: 1rem;
 }
     
 .button:hover {
     cursor: pointer;
-    background-color: green;
+    background-color: #bbd1aa;
     color: #000;
     transition: all .5s ease;
+    border: 2px solid transparent;
 
     
+}
+
+.controll-pannel {
+    display: flex;
+    flex-direction: column;
+    background-color:#317832;
+    color: #e0e2e1;
+    border: 2px solid#e0e2e1;
+    padding: 2rem 3rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.level {
+
+}
+.level-value {
+    color: #bbd1aa;
+}
+
+.goal {
+
+}
+
+.goal-value {
+    color: goldenrod;
+}
+
+
+.score {
+
 }

@@ -1,16 +1,18 @@
-import {Engine} from './engine'
-import {UI} from './ui'
+import {Engine} from './engine';
+import {UI} from './ui';
 
 class Controller {
     constructor(UI, engine) {
         this.UI = UI;
         this.Engine = engine;
-        let totalAmount = 0;
-        let level = 0;
+        this.totalAmount = 0;
+        this.level = 0;
     }
 
     init() {
-        let start = this.UI.levelStart(matrix);
+        let start = this.UI.levelStart(this.level);
+        let matrix = this.Engine.getMatrix();
+        this.UI.showEntireMatrix(matrix);
     }
 
     openCellHandler(i, j) {
@@ -23,21 +25,22 @@ class Controller {
         if (N < 1) {
             UI.levelFailed();
         }
-        if (totalAmount > this.Engine.getSuccessRate()) {
+        if (this.totalAmount > this.Engine.getSuccessRate()) {
             UI.levelSuccess();
-            totalAmount = 0;
+            this.totalAmount = 0;
             Engine.startNextLevel();
             let matrix = Engine.getMatrix();
             UI.showEntireMatrix(matrix);
         } else{
             let matrix = this.Engine.getMatrix();
             let amount = matrix.getValue(i,j);
-            totalAmount += amount;
-            UI.openCell(i, j, amount, totalAmount); //open cell
+            this.totalAmount += amount;
+            UI.openCell(i, j, amount, this.totalAmount); //open cell
             UI.showEntireMatrix(matrix);
         }
 
     }
 }
 
-const controller = new Controller(new UI(), new Engine());
+let c = new Controller(new UI(), new Engine());
+document.querySelector('.startButton').addEventListener('click', ()=>c.init());

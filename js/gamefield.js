@@ -19,6 +19,10 @@ export class GameField {
     }
 
     getValue(i, j) {
+        let ref = this.matrix[i][j];
+        if (!ref) {
+            console.log(i, j);
+        }
         return this.matrix[i][j].value;
     }
 

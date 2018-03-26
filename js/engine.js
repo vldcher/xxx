@@ -4,7 +4,7 @@ import {evaluate} from "./clicksevaluator";
 
 export class Engine{
     constructor() {
-        this.init(0.5);
+        this.init(0.2);
     }
 
     getSuccessRate(){
@@ -25,7 +25,7 @@ export class Engine{
         this.randomizer = new Randomizer();
         this.matrix = new GameField(5);
         this.randomizer.fillMatrix(this.matrix, 10, 1000);
-        this.clicks = evaluate(this.matrix);
+        this.clicks = evaluate(this.matrix, this.getSuccessRate());
     }
 
 }

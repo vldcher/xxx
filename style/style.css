@@ -61,6 +61,10 @@ body {
 
     
 }
+
+.background {
+    background: url("./../images/ring.png") repeat-y;
+}
 .cell-item:hover {
     cursor: pointer;
     transform: scale(1.2);
@@ -68,7 +72,8 @@ body {
     transition: all .25s ease-in;
 }
 .rotateRing {
-    transform: rotate(90deg);
+	transition: transform 0.3s linear;
+    transform: rotate(180deg);
 }
 
 
@@ -93,6 +98,10 @@ body {
     border: 2px solid transparent;
 
     
+}
+
+.nextButton {
+    display: none;
 }
 
 .controll-pannel {
